@@ -6,45 +6,18 @@ public class question2
 
 	public static void main(String[] args) 
 	{
-		int diff,a,b,hcf=1,min;
+		int i,a,b,hcf=0;
 		Scanner in=new Scanner(System.in);
 		System.out.println("Enter two no:");
 		a=in.nextInt();
 		b=in.nextInt();
-		min=a<b?a:b;
-		if(a%min==0 && b%min==0)
-		{	
-		hcf=min;
-		}
-		else
+		for(i=1;i<=a && i<=b;i++)
 		{
-		if(a>b)
-		{
-        diff=a-b;
+			if(a%i==0 && b%i==0)
+				
+				hcf=i;
 		}
-		else
-		{
-		diff=b-a;
-		}
-
-		while(diff>=1)
-		{
-
-		if(a%diff==0 && b%diff==0)
-
-		{
-		hcf=diff;
-
-		break;
-		}
-        else
-        {
-		diff=diff/2;
-
-		}
-        }
-		}
-    System.out.println("HCF = "+hcf);
+    System.out.println("The highest common factor is "+hcf);
 
 	}
 
