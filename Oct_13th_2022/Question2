@@ -1,0 +1,53 @@
+/*WAP to create a class Reverse No, second class SOD ,
+Third class use both the class property and display the output*/
+package Question2;
+import java.util.*;
+public class ReverseNo
+{
+int num;
+int arr1[]=new int[10];
+int arr2[]=new int[10];
+Scanner in=new Scanner(System.in);
+public int reverse()
+{
+	int sum=0,r;
+	System.out.println("Enter no");
+	num=in.nextInt();
+	while(num!=0)
+	{
+		r=num%10;
+		sum=(sum*10)+r;
+		num=num/10;
+	}
+	return(sum);	
+}
+}
+public class Sum_of_digit extends ReverseNo
+{
+	int num;
+	Scanner in=new Scanner(System.in);
+	public int sumofdigit()
+	{
+		int sum=0,r;
+		System.out.println("Enter no");
+		num=in.nextInt();
+		while(num!=0)
+		{
+			r=num%10;
+			sum=sum+r;
+			num=num/10;
+		}
+		return(sum);	
+	}
+}
+
+public class Main_Class extends Sum_of_digit
+{
+    public static void main(String[] args) 
+	{
+		Main_Class m1=new Main_Class();
+		System.out.println("Reverse No = "+m1.reverse());
+		System.out.println("Sum Of Digit = "+m1.sumofdigit());
+	}
+
+}
