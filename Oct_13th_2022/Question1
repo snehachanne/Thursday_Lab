@@ -1,0 +1,68 @@
+/*WAP to create a class which contain the method Palindrom .
+the second class will use the proerty of first class and display the output*/
+
+package Question1;
+
+public class DerivedClass extends Check_Palindrom 
+{
+
+	public static void main(String[] args) 
+	{
+		DerivedClass d1=new DerivedClass();
+		d1.palindrom();
+
+		d1.display();
+    }
+	void display()
+	{  
+		System.out.println("The list of palindrom numbers which are enter by users:");
+		for(int i=0;i<10;i++)
+		{
+			System.out.println(arr1[i]);
+		}
+		System.out.println("The list of Non palindrom numbers which are enter by users:");
+		for(int i=0;i<10;i++)
+		{
+			System.out.println(arr2[i]);
+		}
+	}
+	
+
+}
+public class Check_Palindrom 
+{
+int num;
+int arr1[]=new int[10];
+int arr2[]=new int[10];
+Scanner in=new Scanner(System.in);
+public void palindrom()
+{
+	int temp,sum=0,r;
+	char ch;
+	do
+	{
+		System.out.println("Enter no");
+		num=in.nextInt();
+		temp=num;
+		while(num!=0)
+		{
+			r=num%10;
+			sum=(sum*10)+r;
+			num=num/10;
+		}
+		if(temp==sum)
+		{
+			for(int i=0;i<10;i++)
+			arr1[i]=num;
+		}
+		else
+		{
+			for(int i=0;i<10;i++)
+				arr2[i]=num;
+		}
+		System.out.println("Do you want to contineu y/n");
+		ch=in.next().charAt(0);
+	}while(ch=='y'||ch=='Y');
+
+}
+}
