@@ -2,38 +2,11 @@
 the second class will use the proerty of first class and display the output*/
 
 package Question1;
-
-public class DerivedClass extends Check_Palindrom 
-{
-
-	public static void main(String[] args) 
-	{
-		DerivedClass d1=new DerivedClass();
-		d1.palindrom();
-
-		d1.display();
-    }
-	void display()
-	{  
-		System.out.println("The list of palindrom numbers which are enter by users:");
-		for(int i=0;i<10;i++)
-		{
-			System.out.println(arr1[i]);
-		}
-		System.out.println("The list of Non palindrom numbers which are enter by users:");
-		for(int i=0;i<10;i++)
-		{
-			System.out.println(arr2[i]);
-		}
-	}
-	
-
-}
 public class Check_Palindrom 
 {
 int num;
-int arr1[]=new int[10];
-int arr2[]=new int[10];
+int arr1[]=new int[10];   //arr1 to store palindrom no
+int arr2[]=new int[10];   //arr2 to store non palindrom no
 Scanner in=new Scanner(System.in);
 public void palindrom()
 {
@@ -47,7 +20,7 @@ public void palindrom()
 		while(num!=0)
 		{
 			r=num%10;
-			sum=(sum*10)+r;
+			sum=(sum*10)+r;   // To check Enter no is palindrom or not
 			num=num/10;
 		}
 		if(temp==sum)
@@ -62,7 +35,34 @@ public void palindrom()
 		}
 		System.out.println("Do you want to contineu y/n");
 		ch=in.next().charAt(0);
-	}while(ch=='y'||ch=='Y');
+	}while(ch=='y'||ch=='Y');   // If user want to Enter num again and again
 
 }
+}
+
+
+public class DerivedClass extends Check_Palindrom 
+{
+
+	public static void main(String[] args) 
+	{
+		DerivedClass d1=new DerivedClass();
+		d1.palindrom();
+                d1.display();
+        }
+	void display() 
+	{  
+		System.out.println("The list of palindrom numbers which are enter by users:");
+		for(int i=0;i<10;i++)
+		{
+			System.out.println(arr1[i]);
+		}
+		System.out.println("The list of Non palindrom numbers which are enter by users:");
+		for(int i=0;i<10;i++)
+		{
+			System.out.println(arr2[i]);
+		}
+	}
+	
+
 }
