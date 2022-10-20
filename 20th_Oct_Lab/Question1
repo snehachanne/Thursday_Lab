@@ -1,0 +1,105 @@
+package Lab_Questions;
+/*Accept some details from the employee
+Accept Name, E_ID, phone_no,address, salary,Expenses(User) 5000-DMart
+N number of employee Calculate the highest salary,highest extpenses
+Display the employee name who is getting highest salaryu'.*/
+import java.util.*;
+public class Employee 
+{
+   String name,add;
+   int e_id;
+   private long sal; 
+   long phone_no,exp;
+   Scanner in=new Scanner(System.in);
+   public long getSal() 
+   {
+	return sal;
+   }
+   public void setSal(long sal)
+   {
+	this.sal = sal;
+   }
+ 
+}
+
+
+public class Emp_Info extends Employee
+{	
+	static int size;
+	long sal,total_exp=0;
+	int arrsal[]=new int[size];
+	static long max_sal;
+    public static void main(String[] args) 
+	{
+    int i;
+    Scanner in=new Scanner(System.in);
+    System.out.println("Enter size");
+    size=in.nextInt();
+    Emp_Info e[]=new Emp_Info[size];
+  
+	for(i=0;i<size;i++)
+	{
+	e[i]=new Emp_Info();
+	e[i].accept();
+	}
+	for(i=0;i<size;i++)
+	{
+	System.out.println();
+	e[i].display();
+	}
+	max_sal=e[0].getSal();
+	for(i=0;i<size;i++)
+	{
+		if(e[i].getSal()>max_sal)
+		{
+			max_sal=e[i].getSal();
+		}
+	}
+	for(i=0;i<size;i++)
+	{
+		if(e[i].getSal()==max_sal)
+		{
+			//System.out.println(e[i].name+" have highest salary that is "+e[i].getSal()); Or
+			System.out.println("Following are the details of employee who have highest salary");
+			e[i].display();
+		}
+	}
+	}
+    public void accept()
+    {
+    	long sal;
+    	char ch;
+    	System.out.println("Enter employee name : ");
+    	name=in.next();
+    	System.out.println("Enter employee Id : ");
+    	e_id=in.nextInt();
+    	System.out.println("Enter employee Phone no : ");
+    	phone_no=in.nextLong();
+    	System.out.println("Enter employee address : ");
+    	add=in.next();
+    	System.out.println("Enter employee salary : ");
+    	sal=in.nextLong();
+    	setSal(sal);
+    	System.out.println("Enter your expenses: ");
+    	do
+    	{	
+    		System.out.println("For what u want spent money : ");
+    		String resion=in.next(); 
+    		System.out.println("How much amount u want to spent :");
+    		exp=in.nextLong();
+    		total_exp=total_exp + exp;
+    		System.out.println("Do u want to add any more expenses");
+    		ch=in.next().charAt(0);
+    	}while(ch=='y'|| ch=='Y');
+    }
+    
+    public void display()
+    {
+    	System.out.println("Employee name : "+name);
+    	System.out.println("Employee ID : "+e_id);
+    	System.out.println("Employee Phone No : "+phone_no);
+    	System.out.println("Employee Address : "+add);
+    	System.out.println("\nEmployee Salary : "+getSal());
+    	System.out.println("\nTotal Expenses of "+name+" are "+total_exp);
+    }
+ }
